@@ -1,0 +1,7 @@
+/* Pure queue / envelope rules shared by the browser and regression tests. */
+(function(root){
+ const gains=(x,curve='equal',overlap=100)=>{x=Math.max(0,Math.min(1,x));const spread=Math.max(.25,Math.min(1,overlap/100));const outgoing=Math.min(1,x/(.5+spread/2));const incoming=Math.max(0,(x-(.5-spread/2))/(.5+spread/2));const shape=t=>curve==='smooth'?t*t*(3-2*t):t;return curve==='equal'?[Math.cos(outgoing*Math.PI/2),Math.sin(incoming*Math.PI/2)]:[1-shape(outgoing),shape(incoming)];};
+ const pickNext=(queue,current,settings,played=[],manual=false,random=Math.random)=>{if(!queue.length)return null;if(settings.repeat==='one'&&!manual&&current)return current;const at=queue.findIndex(t=>t.uid===current);if(settings.shuffle){let pool=queue.filter(t=>t.uid!==current&&!played.includes(t.uid));if(!pool.length&&settings.repeat==='all')pool=queue.filter(t=>t.uid!==current);if(!pool.length)return settings.repeat==='all'&&queue.length===1?queue[0].uid:null;return pool[Math.floor(random()*pool.length)].uid;}return queue[at+1]?.uid||(settings.repeat==='all'?queue[0].uid:null);};
+ const move=(queue,uid,index)=>{const at=queue.findIndex(t=>t.uid===uid);if(at<0)return queue;const result=queue.slice();const [item]=result.splice(at,1);result.splice(Math.max(0,Math.min(result.length,index)),0,item);return result;};
+ const api={gains,pickNext,move};if(typeof module!=='undefined')module.exports=api;else root.MixRules=api;
+})(typeof window!=='undefined'?window:globalThis);
