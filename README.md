@@ -46,7 +46,7 @@ YouTube handles video playback and receives playback requests. Track titles and 
 
 This is a static HTML / CSS / JavaScript application. GitHub Pages can serve it directly from `main` → `/(root)`; no build step, Python service or secret key is needed.
 
-See the [deployment guide](docs/DEPLOYMENT.md) for publishing and optional local development. Version ZIP archives will be published under [Releases](https://github.com/panasonicas/crossfade/releases); the first archive is pending upload.
+See the [deployment guide](docs/DEPLOYMENT.md) for publishing and optional local development. Download the versioned source ZIP from [Releases](https://github.com/panasonicas/crossfade/releases). Extract it before uploading the application files.
 
 ## Project status
 
