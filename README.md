@@ -6,11 +6,11 @@ A browser-based YouTube music player with two decks, smooth automatic crossfades
 
 ### [▶ Open the live player](https://panasonicas.github.io/crossfade/)
 
-[![Release](https://img.shields.io/github/v/release/panasonicas/crossfade)](https://github.com/panasonicas/crossfade/releases)
+[![Release](https://img.shields.io/badge/version-v0.1.4-c8f76b)](https://github.com/panasonicas/crossfade/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-c8f76b.svg)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-22272e.svg)](https://panasonicas.github.io/crossfade/)
 
-![Crossfade Player with two decks and a next-track preview](player-v0.1.4-pages-preview.png)
+<img src="favicon.svg" width="64" alt="Crossfade icon">
 
 ## Make your next mix
 
@@ -46,7 +46,7 @@ YouTube handles video playback and receives playback requests. Track titles and 
 
 This is a static HTML / CSS / JavaScript application. GitHub Pages can serve it directly from `main` → `/(root)`; no build step, Python service or secret key is needed.
 
-See the [deployment guide](docs/DEPLOYMENT.md) for publishing and optional local development. Release ZIP archives are available under [Releases](https://github.com/panasonicas/crossfade/releases).
+See the [deployment guide](docs/DEPLOYMENT.md) for publishing and optional local development. Version ZIP archives will be published under [Releases](https://github.com/panasonicas/crossfade/releases); the first archive is pending upload.
 
 ## Project status
 
