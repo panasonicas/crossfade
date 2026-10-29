@@ -1,5 +1,5 @@
 'use strict';
-const $=id=>document.getElementById(id), VERSION='0.1.4', STORE='crossfade-player-youtube-v1:'+new URL('.',location.href).pathname;
+const $=id=>document.getElementById(id), VERSION='0.1.5', STORE='crossfade-player-youtube-v1:'+new URL('.',location.href).pathname;
 const defaults={fade:8,volume:80,curve:'equal',overlap:100,shuffle:false,repeat:'off'};
 let settings={...defaults},queue=[],current=null,active=0,playing=false,transition=null,plan=null,played=[],history=[],dragged=null,serial=0,storageOK=true;
 let playlists=[],selectedPlaylist=null,starting=false,scrubbing=false,knobDrag=null;
@@ -7,7 +7,7 @@ let upcoming=null;
 const metadataRequests=new Map();
 const decks=[0,1].map(i=>({i,item:null,player:null,ready:false,started:false}));
 const uid=()=>crypto.randomUUID(),say=message=>{$('status').textContent=message;},fmt=n=>{n=Number.isFinite(n)?Math.max(0,n):0;return Math.floor(n/60)+':'+String(Math.floor(n%60)).padStart(2,'0');};
-function videoId(value){try{const u=new URL(value);if(!['https:','http:'].includes(u.protocol))return null;const host=u.hostname.replace(/^www\./,'').replace(/^m\./,'');let id=host==='youtu.be'?u.pathname.split('/')[1]:host==='youtube.com'?(u.searchParams.get('v')||u.pathname.match(/^\/(?:shorts|embed|live)\/([^/]+)/)?.[1]):null;return /^[\w-]{11}$/.test(id||'')?id:null;}catch{return null;}}
+function videoId(value){try{const u=new URL(value);if(!['https:','http:'].includes(u.protocol))return null;const host=u.hostname.replace(/^www\./,'').replace(/^m\./,'');let id=host==='youtu.be'?u.pathname.split('/')[1]:['youtube.com','music.youtube.com'].includes(host)?(u.searchParams.get('v')||u.pathname.match(/^\/(?:shorts|embed|live)\/([^/]+)/)?.[1]):null;return /^[\w-]{11}$/.test(id||'')?id:null;}catch{return null;}}
 function cleanSettings(s={}){return {fade:Math.min(20,Math.max(0,Number(s.fade??8)||0)),volume:Math.min(100,Math.max(0,Number(s.volume??80)||0)),curve:['equal','linear','smooth'].includes(s.curve)?s.curve:'equal',overlap:Math.min(100,Math.max(25,Number(s.overlap)||100)),shuffle:s.shuffle===true,repeat:['off','all','one'].includes(s.repeat)?s.repeat:'off'};}
 const trackData=tracks=>tracks.map(({uid,type,id,title})=>({uid,type,id,title}));
 function syncPlaylist(){const list=playlists.find(p=>p.uid===selectedPlaylist);if(list)list.tracks=queue;}
