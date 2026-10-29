@@ -2,6 +2,12 @@
 
 Application versions are preserved as separate ZIP archives. Documentation-only updates do not change the player version.
 
+## v0.1.5 — 2026-10-29
+
+- Accept YouTube Music share links directly, including the optional `si` parameter.
+- Preserve strict hostname and video-ID validation.
+- Passed all 12 automated Pages checks, including the supplied link through the add-track form.
+
 ## v0.1.4 — 2026-10-27
 
 First public GitHub Pages release.
