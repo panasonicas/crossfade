@@ -6,7 +6,7 @@ A browser-based YouTube music player with two decks, smooth automatic crossfades
 
 ### [▶ Open the live player](https://panasonicas.github.io/crossfade/)
 
-[![Release](https://img.shields.io/badge/version-v0.1.4-c8f76b)](https://github.com/panasonicas/crossfade/releases)
+[![Release](https://img.shields.io/badge/version-v0.1.5-c8f76b)](https://github.com/panasonicas/crossfade/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-c8f76b.svg)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-22272e.svg)](https://panasonicas.github.io/crossfade/)
 
@@ -15,7 +15,7 @@ A browser-based YouTube music player with two decks, smooth automatic crossfades
 ## Make your next mix
 
 1. Open the [live player](https://panasonicas.github.io/crossfade/).
-2. Paste a YouTube video link and add a few tracks.
+2. Paste a YouTube or YouTube Music video link and add a few tracks.
 3. Press **Play**. Use **⇄** to adjust crossfade duration, curve and overlap.
 4. Create named playlists, rearrange tracks and switch between your collections.
 
@@ -50,7 +50,7 @@ See the [deployment guide](docs/DEPLOYMENT.md) for publishing and optional local
 
 ## Project status
 
-**v0.1.4 is live.** The owner verified playback on desktop, mobile and in a private-browsing session. Development checks are described in [Testing](docs/TESTING.md); the release history is in [CHANGELOG.md](CHANGELOG.md).
+**v0.1.5 adds YouTube Music share-link support.** The preceding v0.1.4 release was verified by the owner on desktop, mobile and in a private-browsing session. Development checks are described in [Testing](docs/TESTING.md); the release history is in [CHANGELOG.md](CHANGELOG.md).
 
 Found a problem? [Open an issue](https://github.com/panasonicas/crossfade/issues) with your browser, device, what you expected and what happened. Include a video link when relevant, but never include passwords, access tokens or other private account information.
 
